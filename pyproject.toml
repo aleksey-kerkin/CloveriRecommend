@@ -2,7 +2,11 @@
 name = "cloverirecommend"
 version = "0.1.0"
 description = ""
-authors = ["Aleksey Kerkin <aleksey.kerkin@yandex.ru>"]
+authors = [
+    "Aleksey Kerkin <aleksey.kerkin@yandex.ru>",
+    "Svetlana Chernoivanova <>",
+]
+
 readme = "README.md"
 
 [tool.poetry.dependencies]
@@ -11,6 +15,8 @@ fastapi = "^0.115.5"
 uvicorn = "^0.32.0"
 transformers = "^4.46.2"
 torch = "^2.5.1"
+scikit-learn = "^1.5.2"
+prefect = "^3.1.2"
 
 
 [build-system]
