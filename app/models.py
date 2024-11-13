@@ -10,7 +10,7 @@ class RecommendationSystem(BaseModel):
     recommendations: List[Dict[str, Union[int, float]]]  # Список рекомендаций с ID и оценками
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "entity_id": 123,
                 "entity_type": "user",

@@ -1,9 +1,10 @@
 from typing import Dict
 
 from fastapi import FastAPI
-from models import RecommendationSystem
 
 from ml.model import load_model, predict  # Предположим, что у нас есть такие функции
+
+from .models import RecommendationSystem
 
 app = FastAPI()
 model = None
@@ -19,7 +20,8 @@ def index():
 @app.on_event("startup")
 def startup_event():
     global model
-    model = load_model()
+    model_path = "path/to/your/model"  # Захардкоженный путь к модели
+    model = load_model(model_path)
 
 
 # Обработчики маршрутов FastAPI
