@@ -1,23 +1,13 @@
-from typing import Dict, List, Union
+from sqlalchemy import JSON, Column, Integer, String
 
-from pydantic import BaseModel
+from ..database import Base
 
 
-class RecommendationSystem(BaseModel):
-    entity_id: int  # Идентификатор пользователя или товара
-    entity_type: str  # 'user' или 'product'
-    features: Dict[str, float]  # Хар-ки пользователя или товара
-    recommendations: List[Dict[str, Union[int, float]]]  # Список рекомендаций с ID и оценками
+class RecommendationSystem(Base):
+    __tablename__ = "recommendations"
 
-    class Config:
-        json_schema_extra = {
-            "example": {
-                "entity_id": 123,
-                "entity_type": "user",
-                "features": {"age": 25, "gender": 0.0, "interest_score": 0.8},
-                "recommendations": [
-                    {"product_id": 456, "recommendation_score": 0.9},
-                    {"product_id": 789, "recommendation_score": 0.85},
-                ],
-            }
-        }
+    id = Column(Integer, primary_key=True, nullable=False)  # ID записи
+    entity_id = Column(Integer, nullable=False)  # ID пользователя или товара
+    entity_type = Column(String, nullable=False)  # 'user' или 'product'
+    features = Column(JSON, nullable=False)  # Хар-ки пользователя или товара
+    recommendations = Column(JSON, nullable=False)  # Список рекомендаций с ID и оценками
