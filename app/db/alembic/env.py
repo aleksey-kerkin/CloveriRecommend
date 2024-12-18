@@ -1,18 +1,24 @@
+import sys
 from logging.config import fileConfig
+from pathlib import Path
 
 from alembic import context
 from sqlalchemy import engine_from_config, pool
 
-from app.models import RecommendationSystem
-from config import settings
-from database import Base
+from app.models import Base
+
+# Get the directory of the current file
+current_path = Path(__file__).resolve()
+
+# Navigate up to the project root
+project_root = current_path.parent.parent.parent
+
+# Add the project root to sys.path
+sys.path.insert(0, str(project_root))
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
-
-config.set_main_option("sqlalchemy.url", f"{settings.DATABASE_URL}?async_fallback=True")
-
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
