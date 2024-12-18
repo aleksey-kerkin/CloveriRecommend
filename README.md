@@ -39,7 +39,7 @@
 2. **Создайте виртуальную среду:**
 
    ```bash
-   python3.12 -m venv venv
+   python -m venv venv
    source venv/bin/activate  # Для Windows: venv\Scripts\activate
    ```
 
