@@ -32,8 +32,8 @@
 1. **Клонируйте репозиторий:**
 
    ```bash
-   git clone https://github.com/your-repo/user-recommendations-api.git
-   cd user-recommendations-api
+   git clone https://github.com/aleksey-kerkin/cloveri-recommend.git
+   cd cloveri-recommend
    ```
 
 2. **Создайте виртуальную среду:**
@@ -134,6 +134,7 @@ curl http://127.0.0.1:8000/users/d2ddb9659980d3aff3f7c745d012b27cd6e6fba99fe07d7
 ## Структура проекта
 
 ```
+cloveri-recommend
 ├── app/
 │   ├── __init__.py
 │   ├── main.py
